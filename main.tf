@@ -51,7 +51,7 @@ resource "aws_security_group" "ansible-allow-web-traffic" {
 #creating master ubuntu instance
 resource "aws_instance" "ansible-master" {
   ami               = "ami-0c7217cdde317cfec"
-  instance_type     = "t2.micro"
+  instance_type     = "m5.large"
   #availability_zone = "us-east-1a"
   count             = 1
   key_name          = aws_key_pair.ansible-keypair.key_name
@@ -64,7 +64,7 @@ resource "aws_instance" "ansible-master" {
 #creating host instances
 resource "aws_instance" "ansible-host" {
   ami               = "ami-0c7217cdde317cfec"
-  instance_type     = "t2.micro"
+  instance_type     = "m5.large"
   #availability_zone = "us-east-1a"
   count             = 3
   key_name          = aws_key_pair.ansible-keypair.key_name
